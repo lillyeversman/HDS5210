@@ -22,3 +22,8 @@ purrr::walk(packages,library,character.only=T)
 libraries <- read.csv(file = "insurance.csv")
 ```
 
+test test test
+```{r}
+summary(libraries)
+```
+
