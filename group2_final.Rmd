@@ -22,8 +22,46 @@ purrr::walk(packages,library,character.only=T)
 charges <- read.csv(file = "insurance.csv")
 ```
 
+```{r}
+
+```
+
+
 test test test
 ```{r}
-summary(libraries)
+summary(charges)
+```
+```{r}
+#maybe will work oncec we clean the data (ashley sometime today)
+charges.cleaned <- charges %>% 
+  select(charges, sex, smoker, bmi) %>%
+    mutate(region= recode_factor(.x = 'region', 
+                                  `1` = "southwest", 
+                                  `2` = "southeast", 
+                                  `3` = "northwest", 
+                                  `4` = "northeast",
+                                  ))  %>%
+   mutate(sex= recode_factor(.x = 'sex', 
+                                  `1` = "female", 
+                                  `0` = "male",
+                                  ))  %>%
+  mutate(smoker= recode_factor(.x = 'smoker', 
+                                  `0` = "no", 
+                                  `1` = "yes",
+                                  ))  %>%
+
+```
+
+```{r}
+might not use: 
+  mutate(sex = recode_factor(sex,"male"=1, "female"=0)) %>%
+mutate(sex = as.numeric(x=sex)-1) %>%
+mutate(smoker = recode_factor(smoker,"yes"=1, "no"=0)) %>%
+mutate(smoker = as.numeric(x=smoker)-1)
+```
+
+
+```{r}
+summary(charges.cleaned)
 ```
 
