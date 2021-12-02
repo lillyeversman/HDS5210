@@ -19,6 +19,6 @@ purrr::walk(packages,library,character.only=T)
 ```
 
 ```{r}
-libraries <- read.csv(file = "insurance.csv")
+charges <- read.csv(file = "insurance.csv")
 ```
 
